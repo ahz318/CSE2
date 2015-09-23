@@ -4,12 +4,12 @@
 public class PokerHandCheck{
   public static void main(String[] args){
       
-    //generate random number between 1 and 52
+    //generate random numbers between 1 and 52 and decrement for no card replacement
     double card1 = (int)(Math.random() * 52 + 1);
-    double card2 = (int)(Math.random() * 52 + 1);
-    double card3 = (int)(Math.random() * 52 + 1);
-    double card4 = (int)(Math.random() * 52 + 1);
-    double card5 = (int)(Math.random() * 52 + 1);
+    double card2 = (int)(Math.random() * 51 + 1);
+    double card3 = (int)(Math.random() * 50 + 1);
+    double card4 = (int)(Math.random() * 49 + 1);
+    double card5 = (int)(Math.random() * 48 + 1);
     
     //creating String variables to represent card suits
     String suit1 = "";
@@ -331,8 +331,22 @@ public class PokerHandCheck{
     System.out.println(identity4 + " of " + suit4);
     System.out.println(identity5 + " of " + suit5);
     
-    //finding if there are 2 pairs     
-    if(identity1 == identity2 && identity3 == identity4 || 
+    //finding if user has 3 of a kind using combinations of 3
+    if(identity1 == identity2 && identity1 == identity3 ||
+       identity1 == identity2 && identity1 == identity4 ||
+       identity1 == identity2 && identity1 == identity5 ||
+       identity2 == identity3 && identity2 == identity4 ||
+       identity2 == identity3 && identity2 == identity5 ||
+       identity3 == identity4 && identity3 == identity5){
+      kind3 = true;
+      highCard = false;
+      if(kind3 = true){
+        System.out.println("You have 3 of a kind!");
+      }
+    }
+    
+    //finding if there are 2 pairs
+    else if(identity1 == identity2 && identity3 == identity4 || 
        identity1 == identity2 && identity3 == identity5 || 
        identity1 == identity3 && identity2 == identity4 || 
        identity1 == identity3 && identity2 == identity5 || 
@@ -350,26 +364,14 @@ public class PokerHandCheck{
       }
     }  
     
-    //finding if user has 3 of a kind using combinations
-    if(identity1 == identity2 && identity1 == identity3 ||
-       identity1 == identity2 && identity1 == identity4 ||
-       identity1 == identity2 && identity1 == identity5 ||
-       identity2 == identity3 && identity2 == identity4 ||
-       identity2 == identity3 && identity2 == identity5 ||
-       identity3 == identity4 && identity3 == identity5){
-      kind3 = true;
-      highCard = false;
-      if(kind3 = true){
-        System.out.println("You have 3 of a kind!");
-      }
-    }
-    
-    //finding if 2 of the 5 cards match using combinations
-    if(identity1 == identity2 || identity1 == identity3 || identity1 == identity4 || identity1 == identity5
+    //finding if there is a pair
+    else if(identity1 == identity2 || identity1 == identity3 || identity1 == identity4 || identity1 == identity5
          || identity2 == identity3 || identity2 == identity4 || identity2 == identity5 || identity3 == identity4
          || identity3 == identity5 || identity4 == identity5){
       highCard = false;
       pair = true;
+      kind3 = true;
+      pair2 = true;
       if(pair2 = true){
         pair = false;
       }
