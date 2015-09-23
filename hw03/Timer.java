@@ -21,6 +21,7 @@ public class Timer{
     //calculations
     hours = (dinnerTime - currentTime)/100;
     minutes = dinnerTime - (hours*100 + currentTime);
+    minutes = minutes%60;
 
     System.out.println("You have " + hours + " hours and " + minutes + " minutes until dinner");
 
