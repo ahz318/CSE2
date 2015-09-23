@@ -3,6 +3,7 @@
 //hw04 pokerhandcheck
 public class PokerHandCheck{
   public static void main(String[] args){
+      
     //generate random number between 1 and 52
     double card1 = (int)(Math.random() * 52 + 1);
     double card2 = (int)(Math.random() * 52 + 1);
